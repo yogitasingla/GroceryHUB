@@ -1,0 +1,134 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Shop Details</ion-title>
+    <ion-buttons slot="end">
+    <ion-button  (click)="closemodal()">
+      <ion-icon name="close"></ion-icon>
+
+    </ion-button>
+    </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-grid>
+   <ion-row>
+     <ion-col >
+       <ion-card>
+       <ion-card-content>
+         <ion-row>
+           <ion-col class="col" size-md="6" offset-md="3" size-xs="8" offset-xs="2" >
+            <ion-img [src]="loadedShop.imageUrl"></ion-img>
+           </ion-col>
+         </ion-row>
+     
+      <div  class="ion-text-center" class="overlay">
+        <ion-avatar >
+          <img src="https://cdn3.iconfinder.com/data/icons/cleaning-solid-1/48/45-512.png">
+         </ion-avatar>
+      </div>
+        
+          <ion-row id="row">
+            <ion-col>
+              <h1  class="ion-text-center"><b>{{loadedShop.ShopName}}</b></h1>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <h2 class="ion-text-center"> {{loadedShop.ShopAddress}}</h2>
+            </ion-col>
+          </ion-row>
+      
+          
+       <ion-row>
+         <ion-col>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="person-sharp"></ion-icon>
+              <ion-col>  {{loadedShop.ShopOwnerName}}</ion-col>
+             </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="call-sharp"></ion-icon> 
+              <ion-col> {{loadedShop.ShopOwnerMobileNo}}</ion-col>
+             </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="time-outline"></ion-icon> 
+              <ion-col> <ion-label>  {{loadedShop.deliveryTime}}</ion-label></ion-col>
+             </ion-col>
+          </ion-row>
+         <ion-row>
+           <ion-col>
+            <ion-icon name="star-sharp"></ion-icon>
+             <ion-col>
+               {{loadedShop.rating}}
+             </ion-col>
+         </ion-col>
+       </ion-row>
+      
+         </ion-col>
+       </ion-row>
+
+
+
+        
+       </ion-card-content>
+        
+       </ion-card>
+     </ion-col>
+    
+   </ion-row>
+  
+ </ion-grid>
+ 
+ <!-- <ion-list >
+   <ion-item >
+    <ion-chip color="medium">
+      <ion-label color="medium">Shop Name</ion-label>
+     </ion-chip>
+    {{loadedShop.ShopName}}
+ </ion-item>
+ <ion-item >
+  <ion-chip color="secondary">
+    <ion-label color="secondary">Shop Address</ion-label>
+   </ion-chip>
+  {{loadedShop.ShopAddress}}
+</ion-item>
+<ion-item >
+  <ion-chip color="warning">
+    <ion-label color="dark">Shop Owner Name</ion-label>
+    <ion-icon name="person-sharp"></ion-icon>
+   </ion-chip>
+  {{loadedShop.ShopOwnerName}}
+</ion-item>
+<ion-item >
+  <ion-chip color="danger">
+    <ion-label color="dark">Shop Mobile Number</ion-label>
+    <ion-icon name="call-sharp"></ion-icon>
+   </ion-chip>
+  {{loadedShop.ShopOwnerMobileNo}}
+</ion-item>
+<ion-item >
+  <ion-chip color="tertiary">
+    <ion-label color="warning">Delivery Time</ion-label>
+    <ion-icon name="time-outline"></ion-icon>
+
+   </ion-chip>
+  {{loadedShop.deliveryTime}}
+</ion-item>
+<ion-item >
+  <ion-chip >
+    <ion-label  [color]="this.loadedShop.rating>=4.0 ? 'success' : 'danger'">Rating</ion-label>
+    <ion-icon name="star-sharp"></ion-icon>
+   </ion-chip>
+  {{loadedShop.rating}}
+</ion-item>
+ </ion-list>
+  
+   -->
+</ion-content>

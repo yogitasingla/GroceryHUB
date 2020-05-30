@@ -1,0 +1,79 @@
+<div id="header">
+  <ion-header >
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        
+         <ion-back-button defaultHref="['/choose']"></ion-back-button> 
+      </ion-buttons>
+      <ion-title class="ion-margin"  align-title="center"><b>IronWala</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+</div>
+
+<ion-content>
+  <!-- <ion-grid >
+    <ion-row id="row" >
+      <ion-col  size-md ="6" offset-md="3" >
+        <ion-img col-2 [src]="loadedShop.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 text-center >{{loadedShop.ShopName}}</h1>
+        <h1>{{loadedShop.ShopOwnerMobileNo}}</h1>
+      </ion-col>
+    
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="success"(click)="openModal()" >Shop Details</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="warning">Choose Cloth</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="4" offset-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col  >
+                <ion-img  [src]="loadedShop.imageUrl"></ion-img>
+              </ion-col>
+            </ion-row>
+            <ion-row id="row">
+              <ion-col>
+                <h1  class="ion-text-center"><b>{{loadedShop.ShopName}}</b></h1>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <h2 class="ion-text-center"> {{loadedShop.ShopAddress}}</h2>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size=12>
+                <ion-card color="warning">
+                  <ion-card-content>
+                    <h1>Offers :-</h1>
+                    <p>{{loadedShop.offers}}</p>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+             
+              <ion-col class="ion-text-center">
+                <ion-button color="danger"(click)="openModal()" >Shop Details</ion-button>
+              </ion-col>
+              <ion-col class="ion-text-center" >
+                <ion-button color="success"[routerLink]="['/address']">Choose Cloth</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

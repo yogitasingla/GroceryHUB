@@ -1,0 +1,8 @@
+{
+  "appId": "com.S_Y.IronMan",
+  "appName": "IronWalla",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

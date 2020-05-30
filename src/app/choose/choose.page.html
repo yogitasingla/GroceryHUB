@@ -1,0 +1,52 @@
+
+<div id="header">
+  <ion-header >
+    <ion-toolbar >
+      <ion-title class="ion-margin"><b>IronWala</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+</div>
+
+
+<ion-content>
+  <div  class="ion-text-center">
+    <h2><b>Welcome to IronWala</b></h2> 
+    <h5> Please Select the Medium for<b> Sign up</b> </h5>
+ </div>
+
+<ion-grid>
+  <ion-row>
+    <ion-col size-md="6" offset-md="3" class="ion-text-center">
+      <ion-card>
+        <ion-card-content [routerLink]="['/mobile-no']" class="ion-activated">
+        <h2>OTP</h2>
+       </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size-md="6" offset-md="3" class="ion-text-center">
+      <ion-card>
+        <ion-card-content [routerLink]="['/username-p']" class="ion-activated">
+        <h2>Password</h2>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col  size-md="6" offset-md="3" class="ion-text-center">
+      <h3>Already have an account? </h3>
+      <ion-button  color="warning" shape="round" fill="outline" [routerLink]="['/sign-in']" >logIn</ion-button>
+    </ion-col>
+    
+  </ion-row>
+  <!-- <p class="ion-text-center">Already have an account? 
+    <ion-button  color="warning" shape="round" fill="outline" [routerLink]="['/sign-in']" >logIn</ion-button> -->
+    <!-- <b id ="p" [routerLink]="['/sign-in']">logIn</b></p> -->
+  
+</ion-grid>
+</ion-content>

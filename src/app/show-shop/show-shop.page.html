@@ -1,0 +1,70 @@
+
+<div id="header">
+  <ion-header >
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <!-- <ion-menu-button></ion-menu-button> -->
+       </ion-buttons>
+      
+      <ion-title class="ion-margin"><b>IronWala</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+</div>
+
+
+<ion-content>
+  <div  class="ion-text-center">
+    <h2><b>Welcome to IronWala</b></h2> 
+    <h5> Please Select the <b> Iron Shop </b> </h5>
+ </div>
+
+
+ <ion-content >
+   <ion-list >
+     <ion-item  *ngFor='let showShop of showShops' size-md="6" offset-md="3" [routerLink]="['/shop',showShop.id]">
+        <ion-grid>
+          <ion-row > 
+            <ion-col size-md="6" offset-md="3">
+              <ion-card   color="light" id="card">
+                <ion-card-content>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size=4>
+                        <ion-avatar >
+                          <ion-img [src]="showShop.imageUrl">
+                        </ion-img>
+                        </ion-avatar>
+                      </ion-col>
+                      <ion-col size=8>
+                        <ion-label >
+                          <h2 id="title"><b>{{showShop. ShopName}}</b></h2> 
+                          <div>
+                            <ion-chip [color]="this.showShop.rating>=4.0 ? 'success' : 'danger'" >
+                              <ion-label  [color]="this.showShop.rating>=4.0 ? 'success' : 'danger'"> {{showShop.rating}}</ion-label>
+                              <ion-icon name="star-sharp"></ion-icon>
+                             </ion-chip>
+                           
+                           <!-- <h2  >Rating - {{showShop.rating}}  <ion-icon name="star-sharp"></ion-icon></h2> -->
+                          <ion-chip color="warning">
+                            <ion-label color="dark">{{showShop.deliveryTime}}</ion-label>
+                            <ion-icon  color="dark" name="time-outline"></ion-icon>
+                          </ion-chip>
+                           <!-- <p color="warning"> Delivery Time : {{showShop.deliveryTime}} Hours</p> -->
+                          </div>
+                        </ion-label>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+              </ion-card>
+             </ion-col>
+          </ion-row>
+        </ion-grid>
+        </ion-item>
+    </ion-list>
+    
+ </ion-content>
+</ion-content>
+
+<!-- <ion-router-outlet id="main"></ion-router-outlet> -->

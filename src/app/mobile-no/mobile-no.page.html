@@ -1,0 +1,63 @@
+ <div id="header">
+  <ion-header >
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="choose"></ion-back-button> 
+       </ion-buttons>
+      <ion-title class="ion-margin"><b>IronWala</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+</div>
+
+<ion-content>
+  <div  class="ion-text-center">
+    
+     <h5>To Continue Please Enter a Valid<b> Mobile Number</b></h5>
+  </div>
+
+  <ion-grid>
+  
+    <ion-row >
+     
+      <ion-col size-md="6" offset-md="3" class="ion-text-center" >
+        <ion-card class="card">
+          <ion-card-content>
+         
+            <mat-form-field>
+              <span matPrefix>+91 &nbsp;</span>
+              <input   type="tel" matInput placeholder="Mobile_no"  [formControl]="phoneFormControl"
+              [errorStateMatcher]="matcher"
+                maxlength="10"  [(ngModel)]="phone_no">
+                 <mat-icon matSuffix>phone</mat-icon>
+      
+               <mat-error *ngIf="phoneFormControl.hasError('pattern') && !phoneFormControl.hasError('required')">
+                Please enter a valid Mobile no
+              </mat-error>
+              <mat-error *ngIf="phoneFormControl.hasError('required')">
+                phone no is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+           
+            <ion-row>
+            <ion-col>
+              <ion-button id="button" color="warning" 
+              (click)="presentToast()"
+               [disabled]="phoneFormControl.hasError('pattern') || phoneFormControl.hasError('required')"
+                type="submit" [routerLink]="['/otp']">VERIFY</ion-button>
+           </ion-col>
+          </ion-row>
+          <ion-row>
+             <ion-col>
+            <h4 class="otp">We will send you One time SMS message for verifying your number</h4>
+            </ion-col>
+           </ion-row>
+           
+          </ion-card-content> 
+        </ion-card>
+      </ion-col>
+     </ion-row> 
+  </ion-grid>
+
+</ion-content> 
+

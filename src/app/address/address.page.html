@@ -1,0 +1,154 @@
+<ion-header >
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="['/show-shop-d']"></ion-back-button> 
+   </ion-buttons>
+  
+    <ion-title> Confirm Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+<ion-grid>
+  <ion-row>
+    <ion-col  size-md="6" offset-md="3">
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              
+              <ion-item>
+                <ion-label position="floating">First Name</ion-label>
+                <ion-input  [(ngModel)]="first_name" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Last Name</ion-label>
+                <ion-input [(ngModel)]="last_name" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+
+
+              <ion-item>
+                <ion-label position="floating">Mobile No</ion-label>
+                <ion-input type="tel"  minlength=10  [formControl]="phoneFormControl"
+                
+                 [(ngModel)]="phone_no" maxlength=10 ></ion-input>
+              </ion-item>
+              <div class="error"  *ngIf="phoneFormControl.hasError('pattern') && !phoneFormControl.hasError('required')">
+                Please enter a valid Mobile no
+              </div>
+              <!-- <div class="error"  *ngIf="phoneFormControl.hasError('required')">
+                phone no is <strong>required</strong>
+              </div> -->
+
+
+
+
+              <ion-item>
+                <ion-label position="floating">Alternate Mobile No(optional)</ion-label>
+                <ion-input type="tel" maxlength=10  minlength=10  [formControl]="AphoneFormControl"
+                 [(ngModel)]="phone_no_A"></ion-input>
+              </ion-item>
+              <div class="error"  *ngIf="AphoneFormControl.hasError('pattern')">
+                Please enter a valid Mobile no
+              </div>
+              <ion-item>
+                
+                <p> Picking Address same as Delivery Address.</p>
+                <ion-checkbox (click)="addValuew($event)"></ion-checkbox>
+              </ion-item>
+            
+            </ion-col>
+          </ion-row>
+          <ion-row [hidden]="checked">
+            <ion-col>
+              <ion-item >
+                <p>Picking Address</p>
+              </ion-item>
+              
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">House No, building name</ion-label>
+                <ion-input  [(ngModel)]="add_1" required></ion-input>
+              </ion-item>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Road Name, Area, Colony</ion-label>
+                <ion-input  [(ngModel)]="add_2" required></ion-input>
+              </ion-item>
+            </ion-col>
+            </ion-row>
+            <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">LandMark(optional)</ion-label>
+                <ion-input  [(ngModel)]="landmark"></ion-input>
+              </ion-item>
+            </ion-col>
+           </ion-row>
+           <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">City </ion-label>
+                  <ion-input  [(ngModel)]="city" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">State</ion-label>
+                  <ion-input  [(ngModel)]="state" required></ion-input>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Pin Code</ion-label>
+                  <ion-input [(ngModel)]="pinCode" maxlength=6 [required]=true></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+           
+         
+         
+          <ion-row>
+            <ion-col>
+              
+            
+              <ion-item>
+                <ion-label position="floating">Delivery Address</ion-label>
+                 <ion-input [disabled]="checked"[(ngModel)]="delivery_add"></ion-input> 
+                
+              </ion-item>
+             
+            </ion-col>
+         
+          </ion-row>
+         <ion-row>
+           <ion-col class="ion-text-center">
+            <ion-button shape="round" fill="outline"
+            color="warning" (click)="presentToast()"
+           [disabled]="!first_name ||!last_name ||!city ||!state ||!phone_no ||!pinCode ||!add_1 ||!add_2" 
+             [routerLink]="['/payment']"
+             >Submit</ion-button>
+           </ion-col>
+         </ion-row>
+         
+        
+        </ion-card-content>
+      </ion-card> 
+    </ion-col>
+    
+  </ion-row>
+</ion-grid>
+</ion-content>

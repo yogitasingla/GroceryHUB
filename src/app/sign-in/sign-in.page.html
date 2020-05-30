@@ -1,0 +1,48 @@
+<div id="header">
+  <ion-header >
+    <ion-toolbar >
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="choose"></ion-back-button> 
+       </ion-buttons>
+      <ion-title class="ion-margin"><b>IronWala</b></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+</div>
+
+<ion-content>
+  <div  class="ion-text-center">
+    
+    <h5>To Continue Please Enter Details for <b>Login</b> </h5>
+ </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3" class="ion-text-center">
+        <ion-card>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">UserName</ion-label>
+              <ion-input [(ngModel)]="userName"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
+            </ion-item>
+           
+            <ion-button id="button" color="warning" shape="round"
+           [disabled]="!userName || !password"
+             type="submit" [routerLink]="['/show-shop']">LogIn</ion-button>                     
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center" >
+        <ion-button color="warning" shape="round" class="ion-text-center"
+        fill="outline" [routerLink]="['/forgot-p']">forgot password ?</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+<!-- <p class="ion-text-center"><span id="p" [routerLink]="['/forgot-p']">forgot password ?</span></p> -->
+</ion-content>
