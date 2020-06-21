@@ -21,12 +21,12 @@
 
 
  <ion-content >
-   <ion-list >
+   
      <ion-item  *ngFor='let showShop of showShops' size-md="6" offset-md="3" [routerLink]="['/shop',showShop.id]">
         <ion-grid>
           <ion-row > 
             <ion-col size-md="6" offset-md="3">
-              <ion-card   color="light" id="card">
+              <ion-card   id="card">
                 <ion-card-content>
                   <ion-grid>
                     <ion-row>
@@ -62,8 +62,7 @@
           </ion-row>
         </ion-grid>
         </ion-item>
-    </ion-list>
-    
+   
  </ion-content>
 </ion-content>
 

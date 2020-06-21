@@ -11,8 +11,8 @@
 </div>
 
 <ion-content>
+  <div id="recaptcha-container" style="display: none;"></div>
   <div  class="ion-text-center">
-    
      <h5>To Continue Please Enter a Valid<b> Mobile Number</b></h5>
   </div>
 
@@ -42,9 +42,11 @@
             <ion-row>
             <ion-col>
               <ion-button id="button" color="warning" 
-              (click)="presentToast()"
+              
                [disabled]="phoneFormControl.hasError('pattern') || phoneFormControl.hasError('required')"
-                type="submit" [routerLink]="['/otp']">VERIFY</ion-button>
+                type="submit"
+                (click)="sendOTP()"
+                  [routerLink]="['/otp']">VERIFY</ion-button>
            </ion-col>
           </ion-row>
           <ion-row>

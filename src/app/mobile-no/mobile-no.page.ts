@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireAuth} from "@angular/fire/auth";
+import * as firebase from "firebase";
 
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ToastController } from '@ionic/angular';
@@ -27,7 +29,15 @@ export class MobileNoPage implements OnInit {
 
   public ionite;
   public phone_no;
-  constructor(public toastController: ToastController) { }
+  
+    recaptchaVerifier;
+     confirmationResult:firebase.auth.ConfirmationResult;
+     otpSent=false;
+    otp;
+   
+  constructor(public toastController: ToastController,
+    private af : AngularFireAuth
+    ) { }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -38,7 +48,42 @@ export class MobileNoPage implements OnInit {
     toast.present();
   }
   ngOnInit() {
+   
+    
+      }
+      ngAfterOnInit(){
+        this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container',
+        {
+            size: "invisible",
+            callback: function (response) {
+            }
+        }); // inserting element to the firebas
+      
+      }
+      sendOTP(phone_no:number){
+    
+        console.log('phone',this.phone_no);
+         firebase.auth().signInWithPhoneNumber( this.phone_no, this.recaptchaVerifier)
+         .then((result)=>{
+   
+   
+           console.log('result',result);
+          
+           this.otpSent=true;
+           console.log(this.phone_no);
+           this.confirmationResult= result;
+           alert('OTP sent');
+          // console.log('otp',this.otp);
+   
+         }).catch(err =>{
+           alert(err);
+         })
+   
+       }
+   
 
-  }
+  
+      
+
 
 }

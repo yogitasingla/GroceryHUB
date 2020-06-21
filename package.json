@@ -17,6 +17,7 @@
     "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.2.14",
     "@angular/core": "~8.2.14",
+    "@angular/fire": "^6.0.0",
     "@angular/forms": "~8.2.14",
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.14",
@@ -31,9 +32,12 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "capacitor-firebase-auth": "^0.3.0",
+    "cordova-android": "^8.1.0",
     "cordova-plugin-firebase-crashlytics": "^1.0.0",
     "cordova-plugin-sms-retriever-manager": "0.0.2",
+    "cordova-res": "^0.15.0",
     "core-js": "^2.5.4",
+    "firebase": "^7.15.1",
     "hammerjs": "^2.0.8",
     "ng-otp-input": "^1.7.0",
     "rxjs": "~6.5.1",
@@ -52,6 +56,12 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^4.2.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -66,5 +76,20 @@
   },
   "description": "An Ionic project",
   "main": "karma.conf.js",
-  "license": "ISC"
+  "license": "ISC",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }

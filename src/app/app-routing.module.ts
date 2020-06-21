@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'choose', pathMatch: 'full' },
+  { path: '', redirectTo: 'choose-cloth', pathMatch: 'full' },
  
   
   { path:'choose', 
@@ -53,8 +53,26 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   },
+  {
+    path: 'choose-cloth',
+    loadChildren: () => import('./choose-cloth/choose-cloth.module').then( m => m.ChooseClothPageModule)
+  },
+  {
+    path: 'rate',
+    loadChildren: () => import('./rate/rate.module').then( m => m.RatePageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+
+
 
   { path: '**', redirectTo: 'choose', },
+  
+  
+  
+
   
 ];
 

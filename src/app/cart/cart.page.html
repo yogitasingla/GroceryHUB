@@ -1,0 +1,25 @@
+<ion-header >
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="['/rate']"></ion-back-button> 
+   </ion-buttons>
+  <ion-title><ion-icon size="medium" name="cart-outline"></ion-icon>Cart 
+  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<button (click)="presentLoading()">login</button>
+<ion-card class="card-discreption">
+  <ion-grid>
+      <ion-row>
+          <ion-col>Your Cart Description</ion-col>
+      </ion-row>
+      <ion-row [hidden]="!showEmptyCartMessage">
+          <ion-col>There are no products in your cart!</ion-col>
+          <ion-col style="color: red"> Please Note: At least one product is required here to go ahead! </ion-col>
+      </ion-row>
+
+  </ion-grid>
+  </ion-card>
+</ion-content>

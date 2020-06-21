@@ -1,0 +1,278 @@
+<ion-header >
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="['/choose-cloth']"></ion-back-button> 
+   </ion-buttons>
+  <ion-title>Rate Estimator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <mat-tab-group  (click)="onLoadClothes('women')"> 
+    <mat-tab label="MEN's WEAR">
+
+    <ion-card *ngFor="let clothDetail of clothesWear; let i = index">
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col size=2 >
+         
+          <ion-avatar >
+            <img [src]="clothDetail.clothImg">
+          </ion-avatar> 
+        
+        </ion-col>
+         
+        <ion-col class="ion-text-uppercase" size=3>
+          <b>
+            <p>{{clothDetail.clothName}}</p>
+          </b>
+       </ion-col>
+
+        <ion-col class="ion-text-center" size= 2>
+        <b> <p><i class="fa fa-inr" aria-hidden="true"></i>{{clothDetail.price}}</p></b>
+        </ion-col>
+
+        <ion-col size=2 class="ion-text-center">
+         <ion-button shape="round" 
+         fill="outline"
+         (click)="dec(i)"
+         (click)="decrementCart()"
+         size="small" color="danger"><ion-icon   name="remove-circle" ></ion-icon></ion-button>
+       </ion-col>
+
+         <ion-col size=1 class="ion-text-center">
+         <b><p>{{this.clothesWear[i].item_qty}}</p></b> 
+         </ion-col>
+         
+        <ion-col size=2 class="ion-text-center">
+          <ion-button shape="round"  fill="outline"
+          (click)="inc(i)"
+          size="small" color="warning"><ion-icon  name="add-circle" ></ion-icon></ion-button>
+         </ion-col>
+
+       </ion-row>
+    </ion-grid>
+
+     </ion-card>
+    </mat-tab>
+
+
+
+
+
+    <mat-tab label="WOMEN's WEAR" (selectionChange)="onLoadClothes('women')">
+      <!-- <ion-card *ngFor="let clothDetail of WomenWear; let i = index">
+
+        <ion-grid>
+          <ion-row>
+    
+            <ion-col size=2 >
+             
+              <ion-avatar >
+                <img [src]="clothDetail.clothImg">
+              </ion-avatar> 
+            
+            </ion-col>
+             
+            <ion-col class="ion-text-uppercase" size=3>
+              <b>
+                <p>{{clothDetail.clothName}}</p>
+              </b>
+           </ion-col>
+    
+            <ion-col class="ion-text-center" size= 2>
+            <b> <p><i class="fa fa-inr" aria-hidden="true"></i>{{clothDetail.price}}</p></b>
+            </ion-col>
+    
+            <ion-col size=2 class="ion-text-center">
+             <ion-button shape="round" fill="outline"
+             (click)="decW(i)"
+             (click)="decrementCart()"
+             size="small" color="danger"><ion-icon   name="remove-circle" ></ion-icon></ion-button>
+           </ion-col>
+    
+             <ion-col size=1 class="ion-text-center">
+             <b><p>{{this.WomenWear[i].item_qty}}</p></b> 
+             </ion-col>
+             
+            <ion-col size=2 class="ion-text-center">
+              <ion-button shape="round" fill="outline"
+              (click)="incW(i)"
+              size="small" color="warning"><ion-icon slot="end"  name="add-circle" ></ion-icon></ion-button>
+             </ion-col>
+    
+           </ion-row>
+        </ion-grid>
+    
+         </ion-card> -->
+
+    </mat-tab>
+    <mat-tab label="KIDS WEAR">
+      <ion-card *ngFor="let clothDetail of kidsWear; let i = index">
+
+        <ion-grid>
+          <ion-row>
+    
+            <ion-col size=2 >
+             
+              <ion-avatar >
+                <img [src]="clothDetail.clothImg">
+              </ion-avatar> 
+            
+            </ion-col>
+             
+            <ion-col class="ion-text-uppercase" size=3>
+              <b>
+                <p>{{clothDetail.clothName}}</p>
+              </b>
+           </ion-col>
+    
+            <ion-col class="ion-text-center" size= 2>
+            <b> <p><i class="fa fa-inr" aria-hidden="true"></i>{{clothDetail.price}}</p></b>
+            </ion-col>
+    
+            <ion-col size=2 class="ion-text-center">
+             <ion-button shape="round" fill="outline"
+             (click)="decK(i)"
+             (click)="decrementCart()"
+             size="small" color="danger"><ion-icon   name="remove-circle" ></ion-icon></ion-button>
+           </ion-col>
+    
+             <ion-col size=1 class="ion-text-center">
+             <b><p>{{this.kidsWear[i].item_qty}}</p></b> 
+             </ion-col>
+             
+            <ion-col size=2 class="ion-text-center">
+              <ion-button shape="round" fill="outline"
+              (click)="incK(i)"
+              size="small" color="warning"><ion-icon slot="end"  name="add-circle" ></ion-icon></ion-button>
+             </ion-col>
+    
+           </ion-row>
+        </ion-grid>
+    
+         </ion-card>
+
+     </mat-tab>
+    <mat-tab label="HOUSE-HOLD">
+      <ion-card *ngFor="let clothDetail of household; let i = index">
+
+        <ion-grid>
+          <ion-row>
+    
+            <ion-col size=2>
+             
+              <ion-avatar >
+                <img [src]="clothDetail.clothImg">
+              </ion-avatar> 
+            
+            </ion-col>
+             
+            <ion-col class="ion-text-uppercase" size=3>
+              <b>
+                <p>{{clothDetail.clothName}}</p>
+              </b>
+           </ion-col>
+    
+            <ion-col class="ion-text-center" size= 2>
+            <b> <p><i class="fa fa-inr" aria-hidden="true"></i>{{clothDetail.price}}</p></b>
+            </ion-col>
+    
+            <ion-col size=2 class="ion-text-center">
+             <ion-button shape="round" fill="outline"
+             (click)="decH(i)"
+             (click)="decrementCart()"
+             size="small" color="danger"><ion-icon   name="remove-circle" ></ion-icon></ion-button>
+           </ion-col>
+    
+             <ion-col size=1 class="ion-text-center">
+             <b><p>{{this.household[i].item_qty}}</p></b> 
+             </ion-col>
+             
+            <ion-col size=2 class="ion-text-center">
+              <ion-button shape="round" fill="outline"
+              (click)="incH(i)"
+              size="small" color="warning"><ion-icon slot="end"  name="add-circle" ></ion-icon></ion-button>
+             </ion-col>
+    
+           </ion-row>
+        </ion-grid>
+    
+         </ion-card>
+
+    </mat-tab>
+    <mat-tab label="SCHOOL UNIFORM">
+      <ion-card *ngFor="let clothDetail of schoolUniform; let i = index">
+
+        <ion-grid>
+          <ion-row>
+    
+            <ion-col size=2 >
+             
+              <ion-avatar >
+                <img [src]="clothDetail.clothImg">
+              </ion-avatar> 
+            
+            </ion-col>
+             
+            <ion-col class="ion-text-uppercase" size=3>
+              <b>
+                <p>{{clothDetail.clothName}}</p>
+              </b>
+           </ion-col>
+    
+            <ion-col class="ion-text-center" size= 2>
+            <b> <p><i class="fa fa-inr" aria-hidden="true"></i>{{clothDetail.price}}</p></b>
+            </ion-col>
+    
+            <ion-col size=2 class="ion-text-center">
+             <ion-button shape="round" fill="outline"
+             (click)="decrementCart()"
+             (click)="decS(i)"
+             size="small" color="danger"><ion-icon   name="remove-circle" ></ion-icon></ion-button>
+           </ion-col>
+    
+             <ion-col size=1 class="ion-text-center">
+             <b><p>{{this.schoolUniform[i].item_qty}}</p></b> 
+             </ion-col>
+             
+            <ion-col size=2 class="ion-text-center">
+              <ion-button shape="round" fill="outline"
+              (click)="incS(i)"
+              size="small" color="warning"><ion-icon   name="add-circle" ></ion-icon></ion-button>
+             </ion-col>
+    
+           </ion-row>
+        </ion-grid>
+    
+         </ion-card>
+
+    </mat-tab>
+    <mat-tab label="OTHER CLOTHES">OTHER CLOTHES</mat-tab>
+  </mat-tab-group>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+     
+      <ion-grid>
+        <ion-row>
+          <ion-col  class="ion-text-center">
+            <ion-title  color="success">Estimate</ion-title>
+          </ion-col>
+
+          <ion-col class="ion-text-center">
+         <b><i id="rs" class="fa fa-inr" aria-hidden="true"></i>{{this.rs}} </b>
+          </ion-col>
+
+          <ion-col  class="ion-text-center">
+            <ion-icon id=cart  size="large" name="cart"  [routerLink]="['/cart']"></ion-icon>
+            <ion-badge id="cart-badge" color="danger">{{this.item_qty}}</ion-badge>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

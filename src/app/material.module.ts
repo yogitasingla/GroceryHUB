@@ -17,6 +17,7 @@ import {
   
 } from "@angular/material";
 import { MatCardModule } from '@angular/material';
+import {MatTabsModule} from '@angular/material/tabs';
 import { NgOtpInputModule } from  'ng-otp-input';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { NgOtpInputModule } from  'ng-otp-input';
     MatSortModule,
     MatAutocompleteModule,
     MatCardModule,
+    MatTabsModule,
     NgOtpInputModule
   ]
 })
